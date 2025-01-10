@@ -1,4 +1,4 @@
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -O2
 CFLAGS += -I./include
 
 SRCS = $(wildcard src/*.c)
@@ -28,6 +28,7 @@ tests: $(TESTS)
 
 $(TESTS): $(TEST_SRC)
 	$(CC) $(CFLAGS) -o bin/$@ $< $(LDLIBS)
+	# cc $(CFLAGS) -o bin/list_algos_tests tests/list_algos_tests.c build/liblcthw.so
 
 clean:
 	rm -rf build bin $(OBJS) $(TESTS)
